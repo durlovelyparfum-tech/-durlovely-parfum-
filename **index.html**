@@ -1,226 +1,89 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="dark" lang="uz">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>DURLOVELY - Elite Fragrance & Beauty</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100;200;400&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond&family=Montserrat&display=swap" rel="stylesheet"/>
 
 <script>
 tailwind.config = {
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                primary: "#D4AF37",
-                "primary-alt": "#f2b90d",
-                "background-dark": "#050505"
-            },
-            fontFamily: {
-                display: ["Cinzel", "serif"],
-                serif: ["Cormorant Garamond", "serif"],
-                sans: ["Montserrat", "sans-serif"]
-            }
-        }
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#D4AF37",
+        background: "#050505"
+      }
     }
+  }
 };
 </script>
 
 <style>
-.gold-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #FBF5B7 50%, #f2b90d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: shimmer 3s infinite;
-}
-@keyframes shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-.glass-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(212,175,55,0.2);
-}
-.card-shadow { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
-.search-shadow { box-shadow: 0 15px 35px -10px rgba(212,175,55,0.2); }
-body { 
-    background: #050505; 
-    min-height: 100vh; 
-    -webkit-tap-highlight-color: transparent; 
-}
-.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300; }
+body { background:#050505; }
+.gold { color:#D4AF37; }
+.glass { background:rgba(255,255,255,.08); backdrop-filter:blur(20px); }
 </style>
 </head>
 
-<body class="text-gray-100 font-sans">
-<!-- Background Effects -->
-<div class="fixed inset-0 pointer-events-none -z-10">
-    <div class="absolute top-[-20%] right-[-20%] w-[400px] h-[400px] bg-gradient-radial from-yellow-400/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-[-15%] left-[-15%] w-[300px] h-[300px] bg-gradient-radial from-emerald-400/10 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
-</div>
+<body class="text-white px-4 pb-24">
 
-<div class="max-w-md mx-auto min-h-screen pb-32 px-4">
-
-<!-- HEADER – LOGO O'ZGARISH #1 -->
-<header class="pt-12 pb-10 text-center sticky top-0 z-50 glass-card rounded-b-3xl border-b border-primary/30">
-    <div class="space-y-4">
-        <!-- 🔥 BU QATOR O'ZGARDI – SIZNING LOGO FAYLINGIZ -->
-        <img src="DURLOVELY-logo.png" alt="DURLOVELY" class="w-28 h-28 mx-auto drop-shadow-2xl object-contain"/>
-        <h1 class="text-4xl font-display tracking-[0.3em] gold-gradient font-bold uppercase drop-shadow-2xl">DURLOVELY</h1>
-        <p class="text-[13px] font-serif italic tracking-[0.5em] text-primary/90 uppercase bg-primary/20 px-6 py-2 rounded-full inline-block">Elite Fragrance & Beauty</p>
-    </div>
+<header class="text-center py-10">
+  <h1 class="text-4xl font-bold tracking-widest gold">DURLOVELY</h1>
+  <p class="italic text-sm text-yellow-300">Elite Fragrance & Beauty</p>
 </header>
 
-<!-- SEARCH -->
-<div class="mb-16">
-    <div class="relative group">
-        <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary text-2xl z-10">search</span>
-        <input id="searchInput" class="w-full pl-14 pr-6 py-5 bg-white/10 border-2 border-primary/30 rounded-3xl text-lg backdrop-blur-xl focus:border-primary/70 focus:ring-4 focus:ring-primary/30 transition-all search-shadow" placeholder="Premium collection qidirish..."/>
-    </div>
+<main class="space-y-10 max-w-md mx-auto">
+
+<!-- CARD -->
+<div class="glass p-8 rounded-3xl text-center">
+  <h2 class="text-3xl font-semibold gold mb-4">Signature Parfum</h2>
+  <p class="mb-6">Oltin yurak sehri</p>
+
+  <input id="signatureName" placeholder="Ismingiz"
+    class="w-full mb-3 p-4 rounded-xl text-black"/>
+
+  <input id="signaturePhone" placeholder="+998901234567"
+    class="w-full mb-4 p-4 rounded-xl text-black"/>
+
+  <button onclick="sendOrder('DURLOVELY Signature','signature','399000')"
+    class="w-full bg-yellow-400 text-black p-4 rounded-xl font-bold">
+    BUYURTMA BERISH
+  </button>
 </div>
 
-<!-- HERO -->
-<section class="text-center mb-20">
-    <h2 class="text-[14px] uppercase tracking-[0.6em] text-primary/90 mb-8 font-bold bg-primary/30 px-8 py-3 rounded-full inline-block">Premium Collections</h2>
-    <p class="text-5xl font-light tracking-tight gold-gradient leading-tight mb-8 drop-shadow-2xl">
-        Unified<br><span class="font-bold text-6xl block">Luxury</span>
-    </p>
-    <p class="text-primary/80 text-xl font-serif italic bg-black/30 px-10 py-5 rounded-3xl backdrop-blur-xl glass-card inline-block">10% chegirma har xaridda ✨</p>
-</section>
-
-<!-- CATALOG -->
-<main class="space-y-10 pb-24">
-    
-    <!-- French Fragrances -->
-    <div class="group relative h-80 rounded-3xl glass-card overflow-hidden card-shadow hover:scale-[1.02] transition-all duration-700 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] hover:border-primary/50 cursor-pointer">
-        <div class="absolute inset-0 bg-gradient-to-br from-rose-600/30 to-purple-600/30"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 h-full relative z-10 space-y-4">
-            <span class="text-lg uppercase tracking-[0.4em] text-primary/95 font-bold bg-primary/40 px-4 py-2 rounded-xl">🇫🇷 Parisian Spirit</span>
-            <h3 class="text-4xl font-semibold gold-gradient drop-shadow-2xl">French Fragrances</h3>
-            <p class="text-white/90 text-lg tracking-wide">Grasse klassikasi</p>
-        </div>
-        <!-- Order Form -->
-        <div class="absolute bottom-6 left-6 right-6 glass-card p-6 rounded-3xl backdrop-blur-2xl transform translate-y-20 group-hover:translate-y-0 transition-all duration-700 opacity-0 group-hover:opacity-100">
-            <input id="frenchName" placeholder="👤 Ismingiz" class="w-full mb-4 p-4 rounded-2xl bg-white/20 border border-primary/40 text-lg focus:ring-2 focus:ring-primary/50"/>
-            <input id="frenchPhone" placeholder="📞 +998 90 123 45 67" class="w-full mb-5 p-4 rounded-2xl bg-white/20 border border-primary/40 text-lg focus:ring-2 focus:ring-primary/50"/>
-            <button onclick="sendOrder('French Fragrances', 'french', '299000')" class="w-full bg-gradient-to-r from-primary to-primary-alt text-black py-4 px-8 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-primary/50 hover:scale-[1.02] transition-all">
-                🚀 BUYURTMA BERISH (299K so'm)
-            </button>
-        </div>
-        <div class="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-700">
-            <span class="material-symbols-outlined text-primary text-6xl">chevron_right</span>
-        </div>
-    </div>
-
-    <!-- Korean Beauty -->
-    <div class="group relative h-80 rounded-3xl glass-card overflow-hidden card-shadow hover:scale-[1.02] transition-all duration-700 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] hover:border-emerald-400/50 cursor-pointer">
-        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/30 to-teal-500/30"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 h-full relative z-10 space-y-4">
-            <span class="text-lg uppercase tracking-[0.4em] text-emerald-400/95 font-bold bg-emerald-400/40 px-4 py-2 rounded-xl">🇰🇷 Korean Beauty</span>
-            <h3 class="text-4xl font-semibold gold-gradient drop-shadow-2xl">Premium Skincare</h3>
-            <p class="text-white/90 text-lg tracking-wide">Yorqin teri uchun</p>
-        </div>
-        <!-- Order Form -->
-        <div class="absolute bottom-6 left-6 right-6 glass-card p-6 rounded-3xl backdrop-blur-2xl transform translate-y-20 group-hover:translate-y-0 transition-all duration-700 opacity-0 group-hover:opacity-100">
-            <input id="koreanName" placeholder="👤 Ismingiz" class="w-full mb-4 p-4 rounded-2xl bg-white/20 border border-emerald-400/40 text-lg focus:ring-2 focus:ring-emerald-400/50"/>
-            <input id="koreanPhone" placeholder="📞 +998 90 123 45 67" class="w-full mb-5 p-4 rounded-2xl bg-white/20 border border-emerald-400/40 text-lg focus:ring-2 focus:ring-emerald-400/50"/>
-            <button onclick="sendOrder('Korean Beauty Skincare', 'korean', '249000')" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-4 px-8 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-emerald-500/50 hover:scale-[1.02] transition-all">
-                🚀 BUYURTMA BERISH (249K so'm)
-            </button>
-        </div>
-        <div class="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-700">
-            <span class="material-symbols-outlined text-emerald-400 text-6xl">chevron_right</span>
-        </div>
-    </div>
-
-    <!-- Signature – LOGO O'ZGARISH #2 -->
-    <div class="group relative h-96 rounded-3xl glass-card overflow-hidden card-shadow border-primary/50 hover:scale-[1.02] transition-all duration-1000 hover:shadow-[0_35px_80px_rgba(212,175,55,0.4)] cursor-pointer">
-        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/50 to-orange-500/50 animate-gradient-xy"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-        <!-- 🔥 BU QATOR O'ZGARDI – SIZNING LOGO FAYLINGIZ -->
-        <img src="DURLOVELY-logo.jpeg" alt="DURLOVELY" class="absolute -top-12 -right-12 w-32 h-32 animate-bounce drop-shadow-2xl object-contain"/>
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 h-full relative z-10 space-y-6">
-            <span class="text-xl uppercase tracking-[0.4em] text-primary/100 font-bold bg-gradient-to-r from-primary/50 to-primary-alt/50 px-6 py-3 rounded-2xl border-2 border-primary/60">💎 Signature Collection</span>
-            <h3 class="text-5xl font-bold gold-gradient drop-shadow-2xl animate-pulse">DURLOVELY Parfum</h3>
-            <p class="text-white/95 text-xl tracking-wide font-semibold bg-black/40 px-8 py-4 rounded-3xl backdrop-blur-xl">Oltin yurak sehri</p>
-        </div>
-        <!-- Order Form -->
-        <div class="absolute bottom-6 left-6 right-6 glass-card p-8 rounded-3xl backdrop-blur-3xl border-primary/50 transform translate-y-24 group-hover:translate-y-0 transition-all duration-1000 opacity-0 group-hover:opacity-100 bg-primary/10">
-            <input id="signatureName" placeholder="👤 Ismingiz" class="w-full mb-5 p-5 rounded-3xl bg-white/30 border-2 border-primary/50 text-xl focus:ring-4 focus:ring-primary/50"/>
-            <input id="signaturePhone" placeholder="📞 +998 90 123 45 67" class="w-full mb-6 p-5 rounded-3xl bg-white/30 border-2 border-primary/50 text-xl focus:ring-4 focus:ring-primary/50"/>
-            <button onclick="sendOrder('DURLOVELY Signature Parfum', 'signature', '399000')" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-black py-6 px-10 rounded-3xl font-bold text-2xl shadow-2xl hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] hover:scale-[1.05] transition-all">
-                👑 SIGNATURE (399K so'm)
-            </button>
-        </div>
-    </div>
 </main>
 
-<!-- BOTTOM NAV -->
-<nav class="fixed bottom-0 left-0 right-0 z-50 glass-card p-6 rounded-t-3xl border-t border-primary/30">
-    <div class="flex justify-around items-center">
-        <a href="#" class="flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-primary/20 transition-all group">
-            <span class="material-symbols-outlined text-xl text-gray-400 group-hover:text-primary transition-all">home</span>
-            <span class="text-xs uppercase tracking-wide text-gray-500 group-hover:text-primary font-medium">Bosh</span>
-        </a>
-        <a href="#" class="flex flex-col items-center gap-2 p-4 rounded-3xl bg-primary/20 border-2 border-primary/40 shadow-lg">
-            <span class="material-symbols-outlined text-xl text-primary font-bold !fill-1">grid_view</span>
-            <span class="text-xs uppercase tracking-wide text-primary font-bold">Katalog</span>
-        </a>
-        <a href="#" class="flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-primary/20 transition-all group">
-            <span class="material-symbols-outlined text-xl text-gray-400 group-hover:text-primary transition-all">shopping_bag</span>
-            <span class="text-xs uppercase tracking-wide text-gray-500 group-hover:text-primary">Savat</span>
-        </a>
-        <a href="#" class="flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-primary/20 transition-all group">
-            <span class="material-symbols-outlined text-xl text-gray-400 group-hover:text-primary transition-all">favorite</span>
-            <span class="text-xs uppercase tracking-wide text-gray-500 group-hover:text-primary">Sevimli</span>
-        </a>
-        <a href="#" class="flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-primary/20 transition-all group">
-            <span class="material-symbols-outlined text-xl text-gray-400 group-hover:text-primary transition-all">person</span>
-            <span class="text-xs uppercase tracking-wide text-gray-500 group-hover:text-primary">Profil</span>
-        </a>
-    </div>
-</nav>
-
-</div>
-
-<!-- GOOGLE SHEETS JAVASCRIPT -->
 <script>
-let WEB_APP_URL = 'https://script.google.com/macros/s/YOUR_WEB_APP_ID/exec';
+const WEB_APP_URL = "PASTE_WEB_APP_URL_HERE";
 
 function sendOrder(product, formId, price) {
-    const name = document.getElementById(formId + 'Name').value.trim();
-    const phone = document.getElementById(formId + 'Phone').value.trim();
-    
-    if (!name || !phone || !phone.match(/^\+998[0-9]{9}$/)) {
-        alert('❌ Ism va to\'g\'ri telefon raqamni kiriting (+998901234567)');
-        return;
-    }
-    
-    const message = `🆕 DURLOVELY BUYURTMA!\n\n👤 ${name}\n📞 ${phone}\n🛍️ ${product}\n💰 ${price} so'm\n\n@durlovely_bot`;
-    const url = `https://t.me/share/url?url=https://durlovelyparfum-tech.github.io/-durlovely-parfum-&text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    
-    document.getElementById(formId + 'Name').value = '';
-    document.getElementById(formId + 'Phone').value = '';
-    
-    alert('✅ Buyurtma yuborildi! Tez orada bog\'lanamiz ☎️');
-}
+  const name = document.getElementById(formId + "Name").value.trim();
+  const phone = document.getElementById(formId + "Phone").value.trim();
 
-// Search functionality
-document.getElementById('searchInput')?.addEventListener('input', function(e) {
-    const cards = document.querySelectorAll('main > div');
-    const query = e.target.value.toLowerCase();
-    cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(query) ? 'block' : 'none';
-    });
-});
+  if (!name || !phone || !phone.match(/^\\+998\\d{9}$/)) {
+    alert("❌ Telefon formati: +998901234567");
+    return;
+  }
+
+  fetch(WEB_APP_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      name, phone, product, price, lang: "uz"
+    })
+  })
+  .then(r => r.json())
+  .then(() => {
+    alert("✅ Buyurtma yuborildi!");
+    document.getElementById(formId + "Name").value = "";
+    document.getElementById(formId + "Phone").value = "";
+  })
+  .catch(() => alert("❌ Server xatosi"));
+}
 </script>
 
 </body>
