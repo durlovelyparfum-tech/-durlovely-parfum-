@@ -100,7 +100,7 @@ body {
 
 <!-- 🔥 FAQAT SHU SCRIPT O‘ZGARTIRILGAN -->
 <script>
-const WEB_APP_URL = "PASTE_WEB_APP_URL_HERE";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydQhfx5nIMbGbvzMRMxsivdQpDCW6CI1A3B%7CfXTf_UVRwBWpufyoyBcPtNhq";
 
 function sendOrder(product, formId, price) {
   const name = document.getElementById(formId + 'Name').value.trim();
