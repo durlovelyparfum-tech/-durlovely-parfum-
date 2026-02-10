@@ -144,7 +144,7 @@ body {
         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/50 to-orange-500/50 animate-gradient-xy"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
         <!-- 🔥 BU QATOR O'ZGARDI – SIZNING LOGO FAYLINGIZ -->
-        <img src="DURLOVELY-logo.png" alt="DURLOVELY" class="absolute -top-12 -right-12 w-32 h-32 animate-bounce drop-shadow-2xl object-contain"/>
+        <img src="DURLOVELY-logo.jpeg" alt="DURLOVELY" class="absolute -top-12 -right-12 w-32 h-32 animate-bounce drop-shadow-2xl object-contain"/>
         <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 h-full relative z-10 space-y-6">
             <span class="text-xl uppercase tracking-[0.4em] text-primary/100 font-bold bg-gradient-to-r from-primary/50 to-primary-alt/50 px-6 py-3 rounded-2xl border-2 border-primary/60">💎 Signature Collection</span>
             <h3 class="text-5xl font-bold gold-gradient drop-shadow-2xl animate-pulse">DURLOVELY Parfum</h3>
