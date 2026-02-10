@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html class="dark" lang="uz">
+<html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <title>DURLOVELY - Elite Fragrance & Beauty</title>
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond&family=Montserrat&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100;200;400&display=swap" rel="stylesheet"/>
 
 <script>
 tailwind.config = {
@@ -16,7 +17,13 @@ tailwind.config = {
     extend: {
       colors: {
         primary: "#D4AF37",
-        background: "#050505"
+        "primary-alt": "#f2b90d",
+        "background-dark": "#050505"
+      },
+      fontFamily: {
+        display: ["Cinzel", "serif"],
+        serif: ["Cormorant Garamond", "serif"],
+        sans: ["Montserrat", "sans-serif"]
       }
     }
   }
@@ -24,46 +31,80 @@ tailwind.config = {
 </script>
 
 <style>
-body { background:#050505; }
-.gold { color:#D4AF37; }
-.glass { background:rgba(255,255,255,.08); backdrop-filter:blur(20px); }
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #FBF5B7 50%, #f2b90d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+.glass-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,175,55,0.2);
+}
+body {
+  background:#050505;
+  min-height:100vh;
+}
+.material-symbols-outlined {
+  font-variation-settings:'FILL' 0,'wght' 300;
+}
 </style>
 </head>
 
-<body class="text-white px-4 pb-24">
+<body class="text-gray-100 font-sans">
 
-<header class="text-center py-10">
-  <h1 class="text-4xl font-bold tracking-widest gold">DURLOVELY</h1>
-  <p class="italic text-sm text-yellow-300">Elite Fragrance & Beauty</p>
+<div class="max-w-md mx-auto min-h-screen pb-32 px-4">
+
+<header class="pt-12 pb-10 text-center sticky top-0 z-50 glass-card rounded-b-3xl">
+  <img src="DURLOVELY-logo.png" class="w-28 h-28 mx-auto mb-4"/>
+  <h1 class="text-4xl font-display tracking-[0.3em] gold-gradient font-bold uppercase">
+    DURLOVELY
+  </h1>
+  <p class="text-xs italic tracking-[0.4em] text-primary mt-2">
+    Elite Fragrance & Beauty
+  </p>
 </header>
 
-<main class="space-y-10 max-w-md mx-auto">
+<main class="space-y-12 mt-16">
 
-<!-- CARD -->
-<div class="glass p-8 rounded-3xl text-center">
-  <h2 class="text-3xl font-semibold gold mb-4">Signature Parfum</h2>
-  <p class="mb-6">Oltin yurak sehri</p>
+<!-- SIGNATURE -->
+<div class="relative h-96 rounded-3xl glass-card overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-orange-500/40"></div>
 
-  <input id="signatureName" placeholder="Ismingiz"
-    class="w-full mb-3 p-4 rounded-xl text-black"/>
+  <div class="relative z-10 h-full flex flex-col justify-center items-center text-center p-6 space-y-4">
+    <h3 class="text-5xl gold-gradient font-bold">DURLOVELY Parfum</h3>
+    <p class="italic text-lg">Oltin yurak sehri</p>
+  </div>
 
-  <input id="signaturePhone" placeholder="+998901234567"
-    class="w-full mb-4 p-4 rounded-xl text-black"/>
+  <div class="absolute bottom-6 left-6 right-6 glass-card p-6 rounded-3xl z-20">
+    <input id="signatureName" placeholder="👤 Ismingiz"
+      class="w-full mb-3 p-4 rounded-xl bg-white/20"/>
+    <input id="signaturePhone" placeholder="📞 +998901234567"
+      class="w-full mb-4 p-4 rounded-xl bg-white/20"/>
 
-  <button onclick="sendOrder('DURLOVELY Signature','signature','399000')"
-    class="w-full bg-yellow-400 text-black p-4 rounded-xl font-bold">
-    BUYURTMA BERISH
-  </button>
+    <button onclick="sendOrder('DURLOVELY Signature','signature','399000')"
+      class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-black py-4 rounded-xl font-bold">
+      BUYURTMA BERISH (399K)
+    </button>
+  </div>
 </div>
 
 </main>
+</div>
 
+<!-- 🔥 FAQAT SHU SCRIPT O‘ZGARTIRILGAN -->
 <script>
 const WEB_APP_URL = "PASTE_WEB_APP_URL_HERE";
 
 function sendOrder(product, formId, price) {
-  const name = document.getElementById(formId + "Name").value.trim();
-  const phone = document.getElementById(formId + "Phone").value.trim();
+  const name = document.getElementById(formId + 'Name').value.trim();
+  const phone = document.getElementById(formId + 'Phone').value.trim();
 
   if (!name || !phone || !phone.match(/^\\+998\\d{9}$/)) {
     alert("❌ Telefon formati: +998901234567");
@@ -73,14 +114,18 @@ function sendOrder(product, formId, price) {
   fetch(WEB_APP_URL, {
     method: "POST",
     body: JSON.stringify({
-      name, phone, product, price, lang: "uz"
+      name: name,
+      phone: phone,
+      product: product,
+      price: price,
+      lang: "uz"
     })
   })
   .then(r => r.json())
   .then(() => {
     alert("✅ Buyurtma yuborildi!");
-    document.getElementById(formId + "Name").value = "";
-    document.getElementById(formId + "Phone").value = "";
+    document.getElementById(formId + 'Name').value = "";
+    document.getElementById(formId + 'Phone').value = "";
   })
   .catch(() => alert("❌ Server xatosi"));
 }
